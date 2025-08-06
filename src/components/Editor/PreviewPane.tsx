@@ -156,7 +156,7 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
             remarkPlugins={[remarkGfm]}
             components={customRenderers}
           >
-            {markdown || '# Welcome to Markdown2PNG\n\nStart typing in the editor to see your content here!'}
+            {markdown || '# Welcome to Markdown2PNG\n\nStart typing in the editor to see your content here!\n\nYou can use inline code like `npm install` or `git commit` in your markdown.'}
           </ReactMarkdown>
         </div>
       </div>

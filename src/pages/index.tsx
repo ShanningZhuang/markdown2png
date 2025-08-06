@@ -44,9 +44,11 @@ greet("Developer");
 ### How to Use
 
 1. **Write your markdown** in the left editor
-2. **Choose a theme** from the dropdown
+2. **Choose a theme** from the dropdown  
 3. **Copy** to clipboard or **Download** as PNG
 4. **Share** anywhere!
+
+You can also use inline code like \`npm install\`, \`git commit -m "message"\`, or \`docker run\` in your markdown content.
 
 > **Tip**: Try different themes to see how your content looks! The table above shows the differences between themes.
 

@@ -219,6 +219,7 @@ body {
   border-radius: 0.25rem;
   font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', monospace;
   font-size: 0.875em;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .markdown-content pre {
@@ -228,6 +229,8 @@ body {
   overflow-x: auto;
   font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', monospace;
   line-height: 1.5;
+  border: 1px solid currentColor;
+  border-opacity: 0.2;
 }
 
 .markdown-content pre code {
@@ -277,8 +280,7 @@ body {
 
 .markdown-content th {
   font-weight: 600;
-  background-color: currentColor;
-  background-opacity: 0.05;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Remove default row styling - will be handled per theme */
@@ -291,6 +293,7 @@ body {
 
 .theme-light .markdown-content pre {
   background-color: var(--theme-light-code);
+  border-color: var(--theme-light-border);
 }
 
 .theme-light .markdown-content h1,
@@ -335,6 +338,7 @@ body {
 
 .theme-dark .markdown-content pre {
   background-color: var(--theme-dark-code);
+  border-color: var(--theme-dark-border);
 }
 
 .theme-dark .markdown-content h1,
@@ -380,6 +384,7 @@ body {
 
 .theme-warm .markdown-content pre {
   background-color: var(--theme-warm-code);
+  border-color: var(--theme-warm-border);
 }
 
 .theme-warm .markdown-content h1,
@@ -425,6 +430,7 @@ body {
 
 .theme-elegant .markdown-content pre {
   background-color: var(--theme-elegant-code);
+  border-color: var(--theme-elegant-border);
 }
 
 .theme-elegant .markdown-content h1,
@@ -470,6 +476,7 @@ body {
 
 .theme-nature .markdown-content pre {
   background-color: var(--theme-nature-code);
+  border-color: var(--theme-nature-border);
 }
 
 .theme-nature .markdown-content h1,
@@ -515,6 +522,7 @@ body {
 
 .theme-sunset .markdown-content pre {
   background-color: var(--theme-sunset-code);
+  border-color: var(--theme-sunset-border);
 }
 
 .theme-sunset .markdown-content h1,
@@ -560,6 +568,7 @@ body {
 
 .theme-ocean .markdown-content pre {
   background-color: var(--theme-ocean-code);
+  border-color: var(--theme-ocean-border);
 }
 
 .theme-ocean .markdown-content h1,
@@ -605,6 +614,7 @@ body {
 
 .theme-mint .markdown-content pre {
   background-color: var(--theme-mint-code);
+  border-color: var(--theme-mint-border);
 }
 
 .theme-mint .markdown-content h1,
