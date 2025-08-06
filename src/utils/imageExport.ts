@@ -34,27 +34,53 @@ export async function exportToImage(
       backgroundColor: finalOptions.backgroundColor || theme.colors.background,
       scale: finalOptions.scale,
       useCORS: true,
-      allowTaint: true,
-      foreignObjectRendering: true,
-      logging: false,
+      allowTaint: false,
+      foreignObjectRendering: false,
+      logging: true, // Enable logging to debug issues
       width: finalOptions.width,
       height: finalOptions.height,
       scrollX: 0,
       scrollY: 0,
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight,
-      // Improve font rendering
-      letterRendering: true,
-      // Handle async content
-      onclone: (clonedDoc: Document) => {
-        // Ensure all fonts are loaded in the cloned document
-        const clonedElement = clonedDoc.getElementById('preview-content')
-        if (clonedElement) {
-          // Force font loading and proper styling
-          clonedElement.style.fontFamily = theme.typography.fontFamily
-          clonedElement.style.fontSize = theme.typography.fontSize
-          clonedElement.style.lineHeight = theme.typography.lineHeight
+      x: 0,
+      y: 0,
+      // Force proper dimensions
+      windowWidth: Math.max(element.scrollWidth, element.offsetWidth),
+      windowHeight: Math.max(element.scrollHeight, element.offsetHeight),
+      // Improve rendering
+      removeContainer: true,
+      imageTimeout: 15000,
+      // Handle fonts and styling
+      onclone: (clonedDoc: Document, clonedElement: HTMLElement) => {
+        // Ensure the cloned element has proper styling
+        const previewContent = clonedDoc.getElementById('preview-content')
+        if (previewContent) {
+          // Apply theme styles directly to cloned element
+          previewContent.style.backgroundColor = theme.colors.background
+          previewContent.style.color = theme.colors.text
+          previewContent.style.fontFamily = theme.typography.fontFamily
+          previewContent.style.fontSize = theme.typography.fontSize
+          previewContent.style.lineHeight = theme.typography.lineHeight
+          previewContent.style.padding = '2rem'
+          previewContent.style.minWidth = '600px'
+          previewContent.style.maxWidth = '1000px'
+          
+          // Ensure all styles are computed
+          const computedStyle = getComputedStyle(element)
+          previewContent.style.width = computedStyle.width
+          previewContent.style.height = 'auto'
+          
+          // Force font loading
+          clonedDoc.fonts?.ready?.then(() => {
+            console.log('Fonts loaded in cloned document')
+          })
         }
+        
+        // Wait for any images to load
+        const images = clonedDoc.querySelectorAll('img')
+        images.forEach((img) => {
+          if (img.complete) return
+          img.onload = () => console.log('Image loaded:', img.src)
+        })
       }
     }
 
@@ -109,13 +135,21 @@ export function downloadImage(dataUrl: string, fileName: string): void {
  */
 export async function copyImageToClipboard(dataUrl: string): Promise<boolean> {
   try {
+    // Check if clipboard API is available
     if (!navigator.clipboard?.write) {
+      console.warn('Clipboard API not available')
       return false
     }
 
     // Convert data URL to blob
     const response = await fetch(dataUrl)
     const blob = await response.blob()
+    
+    // Ensure we have a valid blob
+    if (!blob || blob.size === 0) {
+      console.error('Invalid blob for clipboard')
+      return false
+    }
     
     // Copy to clipboard
     await navigator.clipboard.write([
@@ -124,10 +158,20 @@ export async function copyImageToClipboard(dataUrl: string): Promise<boolean> {
       }),
     ])
     
+    console.log('Image copied to clipboard successfully')
     return true
   } catch (error) {
     console.error('Failed to copy to clipboard:', error)
-    return false
+    
+    // Fallback: try to copy the data URL as text (not ideal but something)
+    try {
+      await navigator.clipboard.writeText(dataUrl)
+      console.log('Data URL copied to clipboard as fallback')
+      return true
+    } catch (fallbackError) {
+      console.error('Clipboard fallback also failed:', fallbackError)
+      return false
+    }
   }
 }
 

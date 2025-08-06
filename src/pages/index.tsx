@@ -20,6 +20,16 @@ Transform your **Markdown** content into beautiful images!
 - 📱 **Mobile Responsive**
 - 🖼️ **High-Quality Export**
 
+### Theme Comparison Table
+
+| Feature | Light | Dark | Warm | Elegant |
+|---------|-------|------|------|---------|
+| Background | White | Dark Gray | Warm Beige | Clean Gray |
+| Text Color | Dark | Light | Brown | Charcoal |
+| Code Blocks | Gray BG | Dark Blue | Warm Tan | Light Blue |
+| Tables | Clean | High Contrast | Warm Tones | Minimal |
+| Best For | Documentation | Night Reading | Blogs | Professional |
+
 ### Code Example
 
 \`\`\`javascript
@@ -31,14 +41,14 @@ function greet(name) {
 greet("Developer");
 \`\`\`
 
-### List Example
+### How to Use
 
-1. Write your markdown
-2. Choose a theme
-3. Export as PNG
-4. Share anywhere!
+1. **Write your markdown** in the left editor
+2. **Choose a theme** from the dropdown
+3. **Copy** to clipboard or **Download** as PNG
+4. **Share** anywhere!
 
-> **Tip**: Try different themes to see how your content looks!
+> **Tip**: Try different themes to see how your content looks! The table above shows the differences between themes.
 
 ---
 

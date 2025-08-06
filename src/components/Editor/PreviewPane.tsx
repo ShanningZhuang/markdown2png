@@ -30,9 +30,9 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
           language={language}
           PreTag="div"
           customStyle={{
-            margin: '1.5rem 0',
-            padding: '1.5rem',
-            borderRadius: '0.5rem',
+            margin: '0rem 0',
+            padding: '0rem',
+            borderRadius: '0rem',
             backgroundColor: theme.colors.code,
             border: `1px solid ${theme.colors.border}`,
           }}
@@ -165,6 +165,83 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
         }}
         {...props}
       />
+    ),
+    table: ({ children, ...props }: any) => (
+      <table 
+        style={{ 
+          width: '100%',
+          borderCollapse: 'collapse',
+          margin: '1.5rem 0',
+          border: `1px solid ${theme.colors.border}`,
+        }}
+        {...props}
+      >
+        {children}
+      </table>
+    ),
+    th: ({ children, ...props }: any) => (
+      <th 
+        style={{ 
+          padding: '0.75rem',
+          textAlign: 'left',
+          border: `1px solid ${theme.colors.border}`,
+          backgroundColor: theme.colors.code,
+          fontWeight: '600',
+          color: theme.colors.heading,
+        }}
+        {...props}
+      >
+        {children}
+      </th>
+    ),
+    td: ({ children, ...props }: any) => (
+      <td 
+        style={{ 
+          padding: '0.75rem',
+          textAlign: 'left',
+          border: `1px solid ${theme.colors.border}`,
+        }}
+        {...props}
+      >
+        {children}
+      </td>
+    ),
+    ul: ({ children, ...props }: any) => (
+      <ul 
+        style={{ 
+          marginBottom: '1rem',
+          paddingLeft: '1.5rem',
+          listStyleType: 'disc',
+          listStylePosition: 'outside',
+        }}
+        {...props}
+      >
+        {children}
+      </ul>
+    ),
+    ol: ({ children, ...props }: any) => (
+      <ol 
+        style={{ 
+          marginBottom: '1rem',
+          paddingLeft: '1.5rem',
+          listStyleType: 'decimal',
+          listStylePosition: 'outside',
+        }}
+        {...props}
+      >
+        {children}
+      </ol>
+    ),
+    li: ({ children, ...props }: any) => (
+      <li 
+        style={{ 
+          marginBottom: '0.25rem',
+          display: 'list-item',
+        }}
+        {...props}
+      >
+        {children}
+      </li>
     ),
   }
 

@@ -171,17 +171,36 @@ body {
 }
 
 .markdown-content p {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .markdown-content ul,
 .markdown-content ol {
   margin-bottom: 1rem;
   padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
 }
 
 .markdown-content li {
   margin-bottom: 0.25rem;
+  display: list-item;
+}
+
+.markdown-content ul ul {
+  list-style-type: circle;
+  margin-top: 0.25rem;
+}
+
+.markdown-content ul ul ul {
+  list-style-type: square;
 }
 
 .markdown-content blockquote {
@@ -200,9 +219,9 @@ body {
 }
 
 .markdown-content pre {
-  margin: 1.5rem 0;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+  margin: 0rem 0;
+  padding: 0rem;
+  border-radius: 0rem;
   overflow-x: auto;
   font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', monospace;
   line-height: 1.5;
@@ -237,6 +256,30 @@ body {
   font-style: italic;
 }
 
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border: 1px solid currentColor;
+  border-opacity: 0.3;
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid currentColor;
+  border-opacity: 0.2;
+}
+
+.markdown-content th {
+  font-weight: 600;
+  background-color: currentColor;
+  background-opacity: 0.05;
+}
+
+/* Remove default row styling - will be handled per theme */
+
 /* Theme-specific code block styling */
 .theme-light .markdown-content code {
   background-color: var(--theme-light-code);
@@ -258,6 +301,27 @@ body {
 
 .theme-light .markdown-content a {
   color: var(--theme-light-link);
+}
+
+.theme-light .markdown-content table {
+  border-color: var(--theme-light-border);
+}
+
+.theme-light .markdown-content th,
+.theme-light .markdown-content td {
+  border-color: var(--theme-light-border);
+}
+
+.theme-light .markdown-content th {
+  background-color: var(--theme-light-code);
+}
+
+.theme-light .markdown-content tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.theme-light .markdown-content tbody tr:hover {
+  background-color: #f3f4f6;
 }
 
 .theme-dark .markdown-content code {
@@ -282,7 +346,28 @@ body {
   color: var(--theme-dark-link);
 }
 
-/* Continue for other themes... */
+.theme-dark .markdown-content table {
+  border-color: var(--theme-dark-border);
+}
+
+.theme-dark .markdown-content th,
+.theme-dark .markdown-content td {
+  border-color: var(--theme-dark-border);
+}
+
+.theme-dark .markdown-content th {
+  background-color: var(--theme-dark-code);
+}
+
+.theme-dark .markdown-content tbody tr:nth-child(even) {
+  background-color: #1f2937;
+}
+
+.theme-dark .markdown-content tbody tr:hover {
+  background-color: #2d3748;
+}
+
+/* Warm theme */
 .theme-warm .markdown-content code {
   background-color: var(--theme-warm-code);
   color: var(--theme-warm-text);
@@ -303,6 +388,27 @@ body {
 
 .theme-warm .markdown-content a {
   color: var(--theme-warm-link);
+}
+
+.theme-warm .markdown-content table {
+  border-color: var(--theme-warm-border);
+}
+
+.theme-warm .markdown-content th,
+.theme-warm .markdown-content td {
+  border-color: var(--theme-warm-border);
+}
+
+.theme-warm .markdown-content th {
+  background-color: var(--theme-warm-code);
+}
+
+.theme-warm .markdown-content tbody tr:nth-child(even) {
+  background-color: #fef7ed;
+}
+
+.theme-warm .markdown-content tbody tr:hover {
+  background-color: #fed7aa;
 }
 
 /* Elegant theme */
@@ -328,6 +434,27 @@ body {
   color: var(--theme-elegant-link);
 }
 
+.theme-elegant .markdown-content table {
+  border-color: var(--theme-elegant-border);
+}
+
+.theme-elegant .markdown-content th,
+.theme-elegant .markdown-content td {
+  border-color: var(--theme-elegant-border);
+}
+
+.theme-elegant .markdown-content th {
+  background-color: var(--theme-elegant-code);
+}
+
+.theme-elegant .markdown-content tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.theme-elegant .markdown-content tbody tr:hover {
+  background-color: #e2e8f0;
+}
+
 /* Nature theme */
 .theme-nature .markdown-content code {
   background-color: var(--theme-nature-code);
@@ -349,6 +476,27 @@ body {
 
 .theme-nature .markdown-content a {
   color: var(--theme-nature-link);
+}
+
+.theme-nature .markdown-content table {
+  border-color: var(--theme-nature-border);
+}
+
+.theme-nature .markdown-content th,
+.theme-nature .markdown-content td {
+  border-color: var(--theme-nature-border);
+}
+
+.theme-nature .markdown-content th {
+  background-color: var(--theme-nature-code);
+}
+
+.theme-nature .markdown-content tbody tr:nth-child(even) {
+  background-color: #f0fdf4;
+}
+
+.theme-nature .markdown-content tbody tr:hover {
+  background-color: #dcfce7;
 }
 
 /* Sunset theme */
@@ -374,6 +522,27 @@ body {
   color: var(--theme-sunset-link);
 }
 
+.theme-sunset .markdown-content table {
+  border-color: var(--theme-sunset-border);
+}
+
+.theme-sunset .markdown-content th,
+.theme-sunset .markdown-content td {
+  border-color: var(--theme-sunset-border);
+}
+
+.theme-sunset .markdown-content th {
+  background-color: var(--theme-sunset-code);
+}
+
+.theme-sunset .markdown-content tbody tr:nth-child(even) {
+  background-color: #fff7ed;
+}
+
+.theme-sunset .markdown-content tbody tr:hover {
+  background-color: #fed7aa;
+}
+
 /* Ocean theme */
 .theme-ocean .markdown-content code {
   background-color: var(--theme-ocean-code);
@@ -397,6 +566,27 @@ body {
   color: var(--theme-ocean-link);
 }
 
+.theme-ocean .markdown-content table {
+  border-color: var(--theme-ocean-border);
+}
+
+.theme-ocean .markdown-content th,
+.theme-ocean .markdown-content td {
+  border-color: var(--theme-ocean-border);
+}
+
+.theme-ocean .markdown-content th {
+  background-color: var(--theme-ocean-code);
+}
+
+.theme-ocean .markdown-content tbody tr:nth-child(even) {
+  background-color: #f0f9ff;
+}
+
+.theme-ocean .markdown-content tbody tr:hover {
+  background-color: #dbeafe;
+}
+
 /* Mint theme */
 .theme-mint .markdown-content code {
   background-color: var(--theme-mint-code);
@@ -418,6 +608,27 @@ body {
 
 .theme-mint .markdown-content a {
   color: var(--theme-mint-link);
+}
+
+.theme-mint .markdown-content table {
+  border-color: var(--theme-mint-border);
+}
+
+.theme-mint .markdown-content th,
+.theme-mint .markdown-content td {
+  border-color: var(--theme-mint-border);
+}
+
+.theme-mint .markdown-content th {
+  background-color: var(--theme-mint-code);
+}
+
+.theme-mint .markdown-content tbody tr:nth-child(even) {
+  background-color: #f0fdfa;
+}
+
+.theme-mint .markdown-content tbody tr:hover {
+  background-color: #ccfbf1;
 }
 
 /* Scrollbar Styling */

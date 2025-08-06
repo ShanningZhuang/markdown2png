@@ -12,7 +12,7 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
   const [isExporting, setIsExporting] = useState(false)
   const [exportStatus, setExportStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleExport = async () => {
+  const handleExport = async (downloadFile: boolean = true) => {
     if (isExporting) return
 
     const previewElement = document.getElementById('preview-content')
@@ -32,15 +32,19 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
       })
 
       if (result.success && result.dataUrl && result.fileName) {
-        downloadImage(result.dataUrl, result.fileName)
-        setExportStatus('success')
-        
-        // Try to copy to clipboard as well (if supported)
-        try {
-          await copyImageToClipboard(result.dataUrl)
-        } catch {
-          // Clipboard copy failed, but download succeeded
+        // Download file if requested
+        if (downloadFile) {
+          downloadImage(result.dataUrl, result.fileName)
         }
+        
+        // Always try to copy to clipboard
+        const clipboardSuccess = await copyImageToClipboard(result.dataUrl)
+        
+        if (!downloadFile && !clipboardSuccess) {
+          throw new Error('Failed to copy to clipboard')
+        }
+        
+        setExportStatus('success')
       } else {
         throw new Error(result.error || 'Export failed')
       }
@@ -105,8 +109,20 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
 
   return (
     <div className="flex items-center gap-2">
+      {/* Copy Only Button */}
       <button
-        onClick={handleExport}
+        onClick={() => handleExport(false)}
+        disabled={isExporting || !markdown.trim()}
+        className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+        title="Copy to clipboard only"
+      >
+        <ClipboardIcon className="h-4 w-4" />
+        <span className="ml-1 hidden sm:inline">Copy</span>
+      </button>
+
+      {/* Download Button */}
+      <button
+        onClick={() => handleExport(true)}
         disabled={isExporting || !markdown.trim()}
         className={`
           inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md 
@@ -121,12 +137,12 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
       </button>
       
       {/* Export info */}
-      <div className="hidden sm:block text-xs text-gray-500">
+      <div className="hidden lg:block text-xs text-gray-500">
         {exportStatus === 'success' && (
-          <span className="text-green-600">Image downloaded & copied to clipboard</span>
+          <span className="text-green-600">Image ready!</span>
         )}
         {exportStatus === 'error' && (
-          <span className="text-red-600">Failed to export image</span>
+          <span className="text-red-600">Export failed</span>
         )}
         {exportStatus === 'idle' && !isExporting && (
           <span>High-quality PNG • {theme.name} theme</span>
