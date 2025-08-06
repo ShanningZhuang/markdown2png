@@ -23,7 +23,7 @@ export function Header() {
           
           <nav className="hidden md:flex items-center space-x-6">
             <Link 
-              href="https://github.com/yourusername/markdown2png" 
+              href="https://github.com/ShanningZhuang/markdown2png" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
               target="_blank"
               rel="noopener noreferrer"

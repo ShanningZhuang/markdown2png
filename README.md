@@ -2,12 +2,25 @@
 
 A modern web application that converts Markdown content into beautiful, shareable PNG images with multiple professional themes.
 
+## 🎯 Live Demo
+
+**[Try it now!](https://your-demo-url.vercel.app)** - No installation required, works in your browser.
+
+### Quick Demo:
+1. Visit the live demo link
+2. Start typing Markdown in the left editor  
+3. Choose from 8 beautiful themes
+4. Click "Copy" to copy PNG to clipboard or "Export PNG" to download
+5. Share your beautiful images anywhere!
+
 ## 🚀 Features
 
 - **Real-time Preview**: See your changes instantly as you type
 - **8 Professional Themes**: Choose from Light, Dark, Warm, Elegant, Nature, Sunset, Ocean, and Mint themes
 - **Code Syntax Highlighting**: Support for 180+ programming languages
 - **High-Quality Export**: Generate crisp, high-resolution PNG images
+- **Frontend-Only**: No backend required - everything runs in your browser
+- **Copy to Clipboard**: Instant copying for quick sharing
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 - **Free to Use**: No limitations on the number of images you can create
 
@@ -30,7 +43,7 @@ A modern web application that converts Markdown content into beautiful, shareabl
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/ShanningZhuang/markdown2png.git
 cd markdown2png
 ```
 
@@ -109,11 +122,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- [Live Demo](your-demo-url)
-- [Documentation](your-docs-url)
-- [Report Bug](your-issues-url)
-- [Request Feature](your-issues-url)
+- [Live Demo](https://markdown2png.vercel.app)
+- [GitHub Repository](https://github.com/ShanningZhuang/markdown2png)
+- [Report Bug](https://github.com/ShanningZhuang/markdown2png/issues)
+- [Request Feature](https://github.com/ShanningZhuang/markdown2png/issues)
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by [Shanning Zhuang](https://github.com/ShanningZhuang)

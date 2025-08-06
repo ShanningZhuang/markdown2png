@@ -47,6 +47,14 @@
     "export",
     "social-media"
   ],
-  "author": "Your Name",
-  "license": "MIT"
+  "author": "Shanning Zhuang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShanningZhuang/markdown2png.git"
+  },
+  "homepage": "https://github.com/ShanningZhuang/markdown2png#readme",
+  "bugs": {
+    "url": "https://github.com/ShanningZhuang/markdown2png/issues"
+  }
 }

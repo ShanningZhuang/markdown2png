@@ -29,10 +29,10 @@
 - [x] **Fixed bullet points** - Added proper list-style-type and list-style-position to display bullet points correctly
 - [x] **Fixed code block margins** - Reduced outer margins from 1rem to 0.75rem for tighter spacing with surrounding content
 - [x] **Fixed table row styling** - Replaced generic currentColor with theme-specific colors for better alternating rows and hover effects
-- [ ] Export image wrong: the image that export or copied differ from the previewed in website. Mainly in the horizontal when faced with the code block or inline code block or the Horizontal Rules.
+- [x] **Fixed export styling mismatch** - Applied comprehensive inline styles in html2canvas onclone callback to ensure exported image matches preview exactly for all elements
 
-### Documentation
+### Documentation ✅
 
-- [ ] (plase move the demo in the front of the readme file)
-- [ ] The github link is (https://github.com/ShanningZhuang/markdown2png.git)
-- [ ] My name is Shanning Zhuang
+- [x] **Moved demo to front of README** - Added prominent live demo section at the top of README with quick start instructions
+- [x] **Updated GitHub links** - All links now point to https://github.com/ShanningZhuang/markdown2png.git
+- [x] **Updated author information** - Changed author name to Shanning Zhuang throughout the project

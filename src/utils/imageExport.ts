@@ -64,6 +64,139 @@ export async function exportToImage(
           previewContent.style.minWidth = '600px'
           previewContent.style.maxWidth = '1000px'
           
+          // Apply list styles
+          const lists = previewContent.querySelectorAll('ul, ol')
+          lists.forEach((list) => {
+            const listEl = list as HTMLElement
+            listEl.style.marginBottom = '1rem'
+            listEl.style.paddingLeft = '1.5rem'
+            listEl.style.listStylePosition = 'outside'
+            if (list.tagName === 'UL') {
+              listEl.style.listStyleType = 'disc'
+            } else {
+              listEl.style.listStyleType = 'decimal'
+            }
+          })
+          
+          // Apply list item styles
+          const listItems = previewContent.querySelectorAll('li')
+          listItems.forEach((li) => {
+            const liEl = li as HTMLElement
+            liEl.style.marginBottom = '0.25rem'
+            liEl.style.display = 'list-item'
+          })
+          
+          // Apply horizontal rule styles
+          const hrs = previewContent.querySelectorAll('hr')
+          hrs.forEach((hr) => {
+            const hrEl = hr as HTMLElement
+            hrEl.style.margin = '2rem 0'
+            hrEl.style.border = 'none'
+            hrEl.style.borderTop = `1px solid ${theme.colors.border || theme.colors.text}`
+            hrEl.style.opacity = '0.3'
+          })
+          
+          // Apply code block styles
+          const preBlocks = previewContent.querySelectorAll('pre')
+          preBlocks.forEach((pre) => {
+            const preEl = pre as HTMLElement
+            preEl.style.margin = '0rem 0'
+            preEl.style.padding = '0rem'
+            preEl.style.borderRadius = '0rem'
+            preEl.style.backgroundColor = theme.colors.code
+            preEl.style.overflowX = 'auto'
+            preEl.style.fontFamily = '"Fira Code", "Monaco", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace'
+            preEl.style.lineHeight = '1.5'
+          })
+          
+          // Apply inline code styles
+          const inlineCodes = previewContent.querySelectorAll('code:not(pre code)')
+          inlineCodes.forEach((code) => {
+            const codeEl = code as HTMLElement
+            codeEl.style.padding = '0.125rem 0.25rem'
+            codeEl.style.borderRadius = '0.25rem'
+            codeEl.style.backgroundColor = theme.colors.code
+            codeEl.style.color = theme.colors.text
+            codeEl.style.fontFamily = '"Fira Code", "Monaco", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace'
+            codeEl.style.fontSize = '0.875em'
+          })
+          
+          // Apply paragraph styles
+          const paragraphs = previewContent.querySelectorAll('p')
+          paragraphs.forEach((p) => {
+            const pEl = p as HTMLElement
+            pEl.style.marginBottom = '0rem'
+          })
+          
+          // Apply heading styles
+          const headings = previewContent.querySelectorAll('h1, h2, h3, h4, h5, h6')
+          headings.forEach((heading) => {
+            const hEl = heading as HTMLElement
+            hEl.style.color = theme.colors.heading || theme.colors.text
+            hEl.style.fontWeight = '600'
+            hEl.style.marginTop = '2rem'
+            hEl.style.marginBottom = '1rem'
+            hEl.style.lineHeight = '1.25'
+            
+            if (heading.tagName === 'H1') {
+              hEl.style.fontSize = '2.25rem'
+              hEl.style.borderBottom = `2px solid ${theme.colors.border || theme.colors.text}`
+              hEl.style.paddingBottom = '0.5rem'
+            } else if (heading.tagName === 'H2') {
+              hEl.style.fontSize = '1.875rem'
+              hEl.style.borderBottom = `1px solid ${theme.colors.border || theme.colors.text}`
+              hEl.style.paddingBottom = '0.25rem'
+            } else if (heading.tagName === 'H3') {
+              hEl.style.fontSize = '1.5rem'
+            } else if (heading.tagName === 'H4') {
+              hEl.style.fontSize = '1.25rem'
+            }
+          })
+          
+          // Apply blockquote styles
+          const blockquotes = previewContent.querySelectorAll('blockquote')
+          blockquotes.forEach((bq) => {
+            const bqEl = bq as HTMLElement
+            bqEl.style.margin = '1.5rem 0'
+            bqEl.style.padding = '1rem 1.5rem'
+            bqEl.style.borderLeft = `4px solid ${theme.colors.accent}`
+            bqEl.style.backgroundColor = theme.colors.code
+            bqEl.style.fontStyle = 'italic'
+            bqEl.style.opacity = '0.9'
+          })
+          
+          // Apply link styles
+          const links = previewContent.querySelectorAll('a')
+          links.forEach((link) => {
+            const linkEl = link as HTMLElement
+            linkEl.style.color = theme.colors.link || theme.colors.accent
+            linkEl.style.textDecoration = 'underline'
+          })
+          
+          // Apply table styles
+          const tables = previewContent.querySelectorAll('table')
+          tables.forEach((table) => {
+            const tableEl = table as HTMLElement
+            tableEl.style.width = '100%'
+            tableEl.style.borderCollapse = 'collapse'
+            tableEl.style.margin = '1.5rem 0'
+            tableEl.style.border = `1px solid ${theme.colors.border || theme.colors.text}`
+          })
+          
+          const tableCells = previewContent.querySelectorAll('th, td')
+          tableCells.forEach((cell) => {
+            const cellEl = cell as HTMLElement
+            cellEl.style.padding = '0.75rem'
+            cellEl.style.textAlign = 'left'
+            cellEl.style.border = `1px solid ${theme.colors.border || theme.colors.text}`
+            
+            if (cell.tagName === 'TH') {
+              cellEl.style.backgroundColor = theme.colors.code
+              cellEl.style.fontWeight = '600'
+              cellEl.style.color = theme.colors.heading || theme.colors.text
+            }
+          })
+          
           // Ensure all styles are computed
           const computedStyle = getComputedStyle(element)
           previewContent.style.width = computedStyle.width
