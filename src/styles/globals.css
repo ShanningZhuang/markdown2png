@@ -1,0 +1,440 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Themes */
+:root {
+  /* Light Theme */
+  --theme-light-bg: #ffffff;
+  --theme-light-text: #1a1a1a;
+  --theme-light-accent: #3b82f6;
+  --theme-light-code: #f3f4f6;
+  --theme-light-border: #e5e7eb;
+  --theme-light-heading: #111827;
+  --theme-light-link: #2563eb;
+
+  /* Dark Theme */
+  --theme-dark-bg: #1a1a1a;
+  --theme-dark-text: #ffffff;
+  --theme-dark-accent: #60a5fa;
+  --theme-dark-code: #374151;
+  --theme-dark-border: #374151;
+  --theme-dark-heading: #f9fafb;
+  --theme-dark-link: #93c5fd;
+
+  /* Warm Theme */
+  --theme-warm-bg: #fefdf9;
+  --theme-warm-text: #1c1917;
+  --theme-warm-accent: #f59e0b;
+  --theme-warm-code: #fef3c7;
+  --theme-warm-border: #fed7aa;
+  --theme-warm-heading: #78350f;
+  --theme-warm-link: #d97706;
+
+  /* Elegant Theme */
+  --theme-elegant-bg: #fafaf9;
+  --theme-elegant-text: #0c0a09;
+  --theme-elegant-accent: #6366f1;
+  --theme-elegant-code: #f5f5f4;
+  --theme-elegant-border: #e7e5e4;
+  --theme-elegant-heading: #1c1917;
+  --theme-elegant-link: #4f46e5;
+
+  /* Nature Theme */
+  --theme-nature-bg: #fefffe;
+  --theme-nature-text: #14532d;
+  --theme-nature-accent: #22c55e;
+  --theme-nature-code: #f0fdf4;
+  --theme-nature-border: #bbf7d0;
+  --theme-nature-heading: #052e16;
+  --theme-nature-link: #16a34a;
+
+  /* Sunset Theme */
+  --theme-sunset-bg: #fffbeb;
+  --theme-sunset-text: #9a3412;
+  --theme-sunset-accent: #ea580c;
+  --theme-sunset-code: #fed7aa;
+  --theme-sunset-border: #fdba74;
+  --theme-sunset-heading: #7c2d12;
+  --theme-sunset-link: #dc2626;
+
+  /* Ocean Theme */
+  --theme-ocean-bg: #f8fafc;
+  --theme-ocean-text: #0f172a;
+  --theme-ocean-accent: #0ea5e9;
+  --theme-ocean-code: #e0f2fe;
+  --theme-ocean-border: #7dd3fc;
+  --theme-ocean-heading: #0c4a6e;
+  --theme-ocean-link: #0284c7;
+
+  /* Mint Theme */
+  --theme-mint-bg: #fdfffe;
+  --theme-mint-text: #064e3b;
+  --theme-mint-accent: #10b981;
+  --theme-mint-code: #ecfdf5;
+  --theme-mint-border: #a7f3d0;
+  --theme-mint-heading: #022c22;
+  --theme-mint-link: #059669;
+}
+
+/* Base Styles */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Theme Classes */
+.theme-light {
+  background-color: var(--theme-light-bg);
+  color: var(--theme-light-text);
+}
+
+.theme-dark {
+  background-color: var(--theme-dark-bg);
+  color: var(--theme-dark-text);
+}
+
+.theme-warm {
+  background-color: var(--theme-warm-bg);
+  color: var(--theme-warm-text);
+}
+
+.theme-elegant {
+  background-color: var(--theme-elegant-bg);
+  color: var(--theme-elegant-text);
+}
+
+.theme-nature {
+  background-color: var(--theme-nature-bg);
+  color: var(--theme-nature-text);
+}
+
+.theme-sunset {
+  background-color: var(--theme-sunset-bg);
+  color: var(--theme-sunset-text);
+}
+
+.theme-ocean {
+  background-color: var(--theme-ocean-bg);
+  color: var(--theme-ocean-text);
+}
+
+.theme-mint {
+  background-color: var(--theme-mint-bg);
+  color: var(--theme-mint-text);
+}
+
+/* Markdown Styles for Each Theme */
+.markdown-content {
+  @apply p-8 max-w-4xl mx-auto;
+  line-height: 1.7;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-content h1 {
+  font-size: 2.25rem;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.875rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+}
+
+.markdown-content h4 {
+  font-size: 1.25rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid currentColor;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.markdown-content code {
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', monospace;
+  font-size: 0.875em;
+}
+
+.markdown-content pre {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', monospace;
+  line-height: 1.5;
+}
+
+.markdown-content pre code {
+  padding: 0;
+  background: transparent !important;
+}
+
+.markdown-content hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.3;
+}
+
+.markdown-content a {
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.markdown-content a:hover {
+  opacity: 0.8;
+}
+
+.markdown-content strong {
+  font-weight: 600;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+/* Theme-specific code block styling */
+.theme-light .markdown-content code {
+  background-color: var(--theme-light-code);
+  color: var(--theme-light-text);
+}
+
+.theme-light .markdown-content pre {
+  background-color: var(--theme-light-code);
+}
+
+.theme-light .markdown-content h1,
+.theme-light .markdown-content h2,
+.theme-light .markdown-content h3,
+.theme-light .markdown-content h4,
+.theme-light .markdown-content h5,
+.theme-light .markdown-content h6 {
+  color: var(--theme-light-heading);
+}
+
+.theme-light .markdown-content a {
+  color: var(--theme-light-link);
+}
+
+.theme-dark .markdown-content code {
+  background-color: var(--theme-dark-code);
+  color: var(--theme-dark-text);
+}
+
+.theme-dark .markdown-content pre {
+  background-color: var(--theme-dark-code);
+}
+
+.theme-dark .markdown-content h1,
+.theme-dark .markdown-content h2,
+.theme-dark .markdown-content h3,
+.theme-dark .markdown-content h4,
+.theme-dark .markdown-content h5,
+.theme-dark .markdown-content h6 {
+  color: var(--theme-dark-heading);
+}
+
+.theme-dark .markdown-content a {
+  color: var(--theme-dark-link);
+}
+
+/* Continue for other themes... */
+.theme-warm .markdown-content code {
+  background-color: var(--theme-warm-code);
+  color: var(--theme-warm-text);
+}
+
+.theme-warm .markdown-content pre {
+  background-color: var(--theme-warm-code);
+}
+
+.theme-warm .markdown-content h1,
+.theme-warm .markdown-content h2,
+.theme-warm .markdown-content h3,
+.theme-warm .markdown-content h4,
+.theme-warm .markdown-content h5,
+.theme-warm .markdown-content h6 {
+  color: var(--theme-warm-heading);
+}
+
+.theme-warm .markdown-content a {
+  color: var(--theme-warm-link);
+}
+
+/* Elegant theme */
+.theme-elegant .markdown-content code {
+  background-color: var(--theme-elegant-code);
+  color: var(--theme-elegant-text);
+}
+
+.theme-elegant .markdown-content pre {
+  background-color: var(--theme-elegant-code);
+}
+
+.theme-elegant .markdown-content h1,
+.theme-elegant .markdown-content h2,
+.theme-elegant .markdown-content h3,
+.theme-elegant .markdown-content h4,
+.theme-elegant .markdown-content h5,
+.theme-elegant .markdown-content h6 {
+  color: var(--theme-elegant-heading);
+}
+
+.theme-elegant .markdown-content a {
+  color: var(--theme-elegant-link);
+}
+
+/* Nature theme */
+.theme-nature .markdown-content code {
+  background-color: var(--theme-nature-code);
+  color: var(--theme-nature-text);
+}
+
+.theme-nature .markdown-content pre {
+  background-color: var(--theme-nature-code);
+}
+
+.theme-nature .markdown-content h1,
+.theme-nature .markdown-content h2,
+.theme-nature .markdown-content h3,
+.theme-nature .markdown-content h4,
+.theme-nature .markdown-content h5,
+.theme-nature .markdown-content h6 {
+  color: var(--theme-nature-heading);
+}
+
+.theme-nature .markdown-content a {
+  color: var(--theme-nature-link);
+}
+
+/* Sunset theme */
+.theme-sunset .markdown-content code {
+  background-color: var(--theme-sunset-code);
+  color: var(--theme-sunset-text);
+}
+
+.theme-sunset .markdown-content pre {
+  background-color: var(--theme-sunset-code);
+}
+
+.theme-sunset .markdown-content h1,
+.theme-sunset .markdown-content h2,
+.theme-sunset .markdown-content h3,
+.theme-sunset .markdown-content h4,
+.theme-sunset .markdown-content h5,
+.theme-sunset .markdown-content h6 {
+  color: var(--theme-sunset-heading);
+}
+
+.theme-sunset .markdown-content a {
+  color: var(--theme-sunset-link);
+}
+
+/* Ocean theme */
+.theme-ocean .markdown-content code {
+  background-color: var(--theme-ocean-code);
+  color: var(--theme-ocean-text);
+}
+
+.theme-ocean .markdown-content pre {
+  background-color: var(--theme-ocean-code);
+}
+
+.theme-ocean .markdown-content h1,
+.theme-ocean .markdown-content h2,
+.theme-ocean .markdown-content h3,
+.theme-ocean .markdown-content h4,
+.theme-ocean .markdown-content h5,
+.theme-ocean .markdown-content h6 {
+  color: var(--theme-ocean-heading);
+}
+
+.theme-ocean .markdown-content a {
+  color: var(--theme-ocean-link);
+}
+
+/* Mint theme */
+.theme-mint .markdown-content code {
+  background-color: var(--theme-mint-code);
+  color: var(--theme-mint-text);
+}
+
+.theme-mint .markdown-content pre {
+  background-color: var(--theme-mint-code);
+}
+
+.theme-mint .markdown-content h1,
+.theme-mint .markdown-content h2,
+.theme-mint .markdown-content h3,
+.theme-mint .markdown-content h4,
+.theme-mint .markdown-content h5,
+.theme-mint .markdown-content h6 {
+  color: var(--theme-mint-heading);
+}
+
+.theme-mint .markdown-content a {
+  color: var(--theme-mint-link);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
