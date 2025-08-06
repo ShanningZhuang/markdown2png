@@ -134,7 +134,10 @@ body {
 
 /* Markdown Styles for Each Theme */
 .markdown-content {
-  @apply p-8 max-w-4xl mx-auto;
+  padding: 2rem;
+  max-width: 56rem; /* 4xl = 56rem */
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.7;
 }
 
@@ -314,6 +317,7 @@ body {
 
 .theme-light .markdown-content th {
   background-color: var(--theme-light-code);
+  color: var(--theme-light-heading);
 }
 
 .theme-light .markdown-content tbody tr:nth-child(even) {
@@ -357,6 +361,7 @@ body {
 
 .theme-dark .markdown-content th {
   background-color: var(--theme-dark-code);
+  color: var(--theme-dark-heading);
 }
 
 .theme-dark .markdown-content tbody tr:nth-child(even) {
@@ -401,6 +406,7 @@ body {
 
 .theme-warm .markdown-content th {
   background-color: var(--theme-warm-code);
+  color: var(--theme-warm-heading);
 }
 
 .theme-warm .markdown-content tbody tr:nth-child(even) {
@@ -445,6 +451,7 @@ body {
 
 .theme-elegant .markdown-content th {
   background-color: var(--theme-elegant-code);
+  color: var(--theme-elegant-heading);
 }
 
 .theme-elegant .markdown-content tbody tr:nth-child(even) {
@@ -489,6 +496,7 @@ body {
 
 .theme-nature .markdown-content th {
   background-color: var(--theme-nature-code);
+  color: var(--theme-nature-heading);
 }
 
 .theme-nature .markdown-content tbody tr:nth-child(even) {
@@ -533,6 +541,7 @@ body {
 
 .theme-sunset .markdown-content th {
   background-color: var(--theme-sunset-code);
+  color: var(--theme-sunset-heading);
 }
 
 .theme-sunset .markdown-content tbody tr:nth-child(even) {
@@ -577,6 +586,7 @@ body {
 
 .theme-ocean .markdown-content th {
   background-color: var(--theme-ocean-code);
+  color: var(--theme-ocean-heading);
 }
 
 .theme-ocean .markdown-content tbody tr:nth-child(even) {
@@ -621,6 +631,7 @@ body {
 
 .theme-mint .markdown-content th {
   background-color: var(--theme-mint-code);
+  color: var(--theme-mint-heading);
 }
 
 .theme-mint .markdown-content tbody tr:nth-child(even) {

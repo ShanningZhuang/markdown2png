@@ -49,15 +49,7 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
         </SyntaxHighlighter>
       ) : (
         <code 
-          className={className} 
-          style={{
-            backgroundColor: theme.colors.code,
-            color: theme.colors.text,
-            padding: '0.125rem 0.25rem',
-            borderRadius: '0.25rem',
-            fontFamily: '"Fira Code", "Monaco", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace',
-            fontSize: '0.875em',
-          }}
+          className={className}
           {...props}
         >
           {children}
@@ -65,183 +57,75 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
       )
     },
     h1: ({ children, ...props }: any) => (
-      <h1 
-        style={{ 
-          color: theme.colors.heading,
-          fontSize: '2.25rem',
-          fontWeight: '600',
-          marginTop: '2rem',
-          marginBottom: '1rem',
-          borderBottom: `2px solid ${theme.colors.border}`,
-          paddingBottom: '0.5rem',
-          lineHeight: '1.25',
-        }}
-        {...props}
-      >
+      <h1 {...props}>
         {children}
       </h1>
     ),
     h2: ({ children, ...props }: any) => (
-      <h2 
-        style={{ 
-          color: theme.colors.heading,
-          fontSize: '1.875rem',
-          fontWeight: '600',
-          marginTop: '2rem',
-          marginBottom: '1rem',
-          borderBottom: `1px solid ${theme.colors.border}`,
-          paddingBottom: '0.25rem',
-          lineHeight: '1.25',
-        }}
-        {...props}
-      >
+      <h2 {...props}>
         {children}
       </h2>
     ),
     h3: ({ children, ...props }: any) => (
-      <h3 
-        style={{ 
-          color: theme.colors.heading,
-          fontSize: '1.5rem',
-          fontWeight: '600',
-          marginTop: '2rem',
-          marginBottom: '1rem',
-          lineHeight: '1.25',
-        }}
-        {...props}
-      >
+      <h3 {...props}>
         {children}
       </h3>
     ),
     h4: ({ children, ...props }: any) => (
-      <h4 
-        style={{ 
-          color: theme.colors.heading,
-          fontSize: '1.25rem',
-          fontWeight: '600',
-          marginTop: '1.5rem',
-          marginBottom: '0.75rem',
-          lineHeight: '1.25',
-        }}
-        {...props}
-      >
+      <h4 {...props}>
         {children}
       </h4>
     ),
     a: ({ children, href, ...props }: any) => (
       <a 
         href={href}
-        style={{ 
-          color: theme.colors.link,
-          textDecoration: 'underline',
-        }}
         {...props}
       >
         {children}
       </a>
     ),
     blockquote: ({ children, ...props }: any) => (
-      <blockquote 
-        style={{ 
-          margin: '1.5rem 0',
-          padding: '1rem 1.5rem',
-          borderLeft: `4px solid ${theme.colors.accent}`,
-          backgroundColor: theme.colors.code,
-          fontStyle: 'italic',
-          opacity: 0.9,
-        }}
-        {...props}
-      >
+      <blockquote {...props}>
         {children}
       </blockquote>
     ),
     hr: ({ ...props }: any) => (
-      <hr 
-        style={{ 
-          margin: '2rem 0',
-          border: 'none',
-          borderTop: `1px solid ${theme.colors.border}`,
-          opacity: 0.6,
-        }}
-        {...props}
-      />
+      <hr {...props} />
     ),
     table: ({ children, ...props }: any) => (
-      <table 
-        style={{ 
-          width: '100%',
-          borderCollapse: 'collapse',
-          margin: '1.5rem 0',
-          border: `1px solid ${theme.colors.border}`,
-        }}
-        {...props}
-      >
+      <table {...props}>
         {children}
       </table>
     ),
     th: ({ children, ...props }: any) => (
-      <th 
-        style={{ 
-          padding: '0.75rem',
-          textAlign: 'left',
-          border: `1px solid ${theme.colors.border}`,
-          backgroundColor: theme.colors.code,
-          fontWeight: '600',
-          color: theme.colors.heading,
-        }}
-        {...props}
-      >
+      <th {...props}>
         {children}
       </th>
     ),
     td: ({ children, ...props }: any) => (
-      <td 
-        style={{ 
-          padding: '0.75rem',
-          textAlign: 'left',
-          border: `1px solid ${theme.colors.border}`,
-        }}
-        {...props}
-      >
+      <td {...props}>
         {children}
       </td>
     ),
     ul: ({ children, ...props }: any) => (
-      <ul 
-        style={{ 
-          marginBottom: '1rem',
-          paddingLeft: '1.5rem',
-          listStyleType: 'disc',
-          listStylePosition: 'outside',
-        }}
-        {...props}
-      >
+      <ul {...props}>
         {children}
       </ul>
     ),
     ol: ({ children, ...props }: any) => (
-      <ol 
-        style={{ 
-          marginBottom: '1rem',
-          paddingLeft: '1.5rem',
-          listStyleType: 'decimal',
-          listStylePosition: 'outside',
-        }}
-        {...props}
-      >
+      <ol {...props}>
         {children}
       </ol>
     ),
     li: ({ children, ...props }: any) => (
-      <li 
-        style={{ 
-          marginBottom: '0.25rem',
-          display: 'list-item',
-        }}
-        {...props}
-      >
+      <li {...props}>
         {children}
       </li>
+    ),
+    p: ({ children, ...props }: any) => (
+      <p {...props}>
+        {children}
+      </p>
     ),
   }
 
