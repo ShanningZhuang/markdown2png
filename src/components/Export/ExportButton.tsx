@@ -116,10 +116,10 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
       console.log('🎯 Added visual debugging. Check the preview pane for colored overlays.')
       console.log('🎯 Run removeMarginPaddingVisualization() in console to remove.')
       // Store cleanup function on window for easy console access
-      ;(window as any).removeDebug = () => {
+      ;(window as Window & { removeDebug?: () => void }).removeDebug = () => {
         removeMarginPaddingVisualization(previewElement)
         console.log('✅ Visual debugging removed')
-        delete (window as any).removeDebug
+        delete (window as Window & { removeDebug?: () => void }).removeDebug
       }
     }
   }

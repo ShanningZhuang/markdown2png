@@ -38,7 +38,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              About Me
+              🤖 About Me
             </Link>
           </nav>
         </div>

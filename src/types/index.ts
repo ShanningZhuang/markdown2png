@@ -31,7 +31,7 @@ export interface ExportOptions {
 export interface MarkdownContent {
   raw: string;
   html: string;
-  frontmatter?: Record<string, any>;
+  frontmatter?: Record<string, unknown>;
 }
 
 export interface PreviewState {

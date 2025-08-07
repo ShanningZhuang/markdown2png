@@ -109,11 +109,11 @@ export function captureElementScreenshot(element: HTMLElement, label: string) {
   console.log('Take screenshot now, then run removeHighlight() in console')
   
   // Store cleanup function on window for easy console access
-  ;(window as any).removeHighlight = () => {
+  ;(window as Window & { removeHighlight?: () => void }).removeHighlight = () => {
     element.style.outline = originalOutline
     element.style.backgroundColor = originalBackground
     console.log('✅ Highlight removed')
-    delete (window as any).removeHighlight
+    delete (window as Window & { removeHighlight?: () => void }).removeHighlight
   }
 }
 

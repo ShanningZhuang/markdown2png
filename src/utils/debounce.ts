@@ -1,7 +1,7 @@
 /**
  * Debounce function to limit function calls
  */
-export function debounce<T extends (...args: any[]) => void>(
+export function debounce<T extends (...args: unknown[]) => void>(
   func: T,
   delay: number
 ): (...args: Parameters<T>) => void {
@@ -22,7 +22,7 @@ export function debounce<T extends (...args: any[]) => void>(
 /**
  * Throttle function to limit function calls to at most once per interval
  */
-export function throttle<T extends (...args: any[]) => void>(
+export function throttle<T extends (...args: unknown[]) => void>(
   func: T,
   interval: number
 ): (...args: Parameters<T>) => void {

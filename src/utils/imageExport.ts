@@ -45,7 +45,7 @@ export async function exportToImage(
       useCORS: true,
       allowTaint: false,
       logging: false,
-      onclone: (clonedDoc: Document, clonedElement: HTMLElement) => {
+      onclone: (clonedDoc: Document) => {
         console.log('🔧 Applying html2canvas text positioning fixes...')
         
         // Find the cloned preview content

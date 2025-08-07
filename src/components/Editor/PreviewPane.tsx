@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneLight, oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import type { Components } from 'react-markdown'
 import type { Theme } from '@/types'
 
 interface PreviewPaneProps {
@@ -19,8 +20,10 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
     return isDark ? oneDark : oneLight
   }, [theme.id])
 
-  const customRenderers = {
-    code({ node, inline, className, children, ...props }: any) {
+  const customRenderers: Components = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    code(props: any) {
+      const { inline, className, children, ...otherProps } = props
       const match = /language-(\w+)/.exec(className || '')
       const language = match ? match[1] : 'text'
       
@@ -29,40 +32,40 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
           style={syntaxTheme}
           language={language}
           PreTag="div"
-          {...props}
+          {...otherProps}
         >
           {String(children).replace(/\n$/, '')}
         </SyntaxHighlighter>
       ) : (
         <code 
           className={className}
-          {...props}
+          {...otherProps}
         >
           {children}
         </code>
       )
     },
-    h1: ({ children, ...props }: any) => (
+    h1: ({ children, ...props }) => (
       <h1 {...props}>
         {children}
       </h1>
     ),
-    h2: ({ children, ...props }: any) => (
+    h2: ({ children, ...props }) => (
       <h2 {...props}>
         {children}
       </h2>
     ),
-    h3: ({ children, ...props }: any) => (
+    h3: ({ children, ...props }) => (
       <h3 {...props}>
         {children}
       </h3>
     ),
-    h4: ({ children, ...props }: any) => (
+    h4: ({ children, ...props }) => (
       <h4 {...props}>
         {children}
       </h4>
     ),
-    a: ({ children, href, ...props }: any) => (
+    a: ({ children, href, ...props }) => (
       <a 
         href={href}
         {...props}
@@ -70,45 +73,45 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
         {children}
       </a>
     ),
-    blockquote: ({ children, ...props }: any) => (
+    blockquote: ({ children, ...props }) => (
       <blockquote {...props}>
         {children}
       </blockquote>
     ),
-    hr: ({ ...props }: any) => (
+    hr: ({ ...props }) => (
       <hr {...props} />
     ),
-    table: ({ children, ...props }: any) => (
+    table: ({ children, ...props }) => (
       <table {...props}>
         {children}
       </table>
     ),
-    th: ({ children, ...props }: any) => (
+    th: ({ children, ...props }) => (
       <th {...props}>
         {children}
       </th>
     ),
-    td: ({ children, ...props }: any) => (
+    td: ({ children, ...props }) => (
       <td {...props}>
         {children}
       </td>
     ),
-    ul: ({ children, ...props }: any) => (
+    ul: ({ children, ...props }) => (
       <ul {...props}>
         {children}
       </ul>
     ),
-    ol: ({ children, ...props }: any) => (
+    ol: ({ children, ...props }) => (
       <ol {...props}>
         {children}
       </ol>
     ),
-    li: ({ children, ...props }: any) => (
+    li: ({ children, ...props }) => (
       <li {...props}>
         {children}
       </li>
     ),
-    p: ({ children, ...props }: any) => (
+    p: ({ children, ...props }) => (
       <p {...props}>
         {children}
       </p>
