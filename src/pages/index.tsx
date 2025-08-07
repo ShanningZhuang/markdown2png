@@ -54,7 +54,9 @@ You can also use inline code like \`npm install\`, \`git commit -m "message"\`, 
 
 ---
 
-*Made with ❤️ for the developer community*`
+*Made by 🤖 [Shanning Zhuang](https://shanningzhuang.github.io/)*
+Code open-sourced on [GitHub](https://github.com/ShanningZhuang/markdown2png)
+`
 
 export default function Home() {
   const [markdown, setMarkdown] = useState(DEFAULT_MARKDOWN)
@@ -75,7 +77,8 @@ export default function Home() {
         <title>Markdown2PNG - Convert Markdown to Beautiful Images</title>
         <meta name="description" content="Transform your Markdown content into beautiful, shareable PNG images with multiple professional themes." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <meta name="theme-color" content="#3B82F6" />
       </Head>
 
       <div className="min-h-screen bg-gray-50 flex flex-col">

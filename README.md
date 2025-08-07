@@ -1,132 +1,134 @@
 # Markdown2PNG
 
-A modern web application that converts Markdown content into beautiful, shareable PNG images with multiple professional themes.
+- [English Version](README_EN.md)
 
-## 🎯 Live Demo
+一款将 Markdown 内容转换为精美、可分享 PNG 图片的现代化网页应用，提供多种专业主题。
 
-**[Try it now!](https://your-demo-url.vercel.app)** - No installation required, works in your browser.
+## 🎯 在线演示
 
-### Quick Demo:
-1. Visit the live demo link
-2. Start typing Markdown in the left editor  
-3. Choose from 8 beautiful themes
-4. Click "Copy" to copy PNG to clipboard or "Export PNG" to download
-5. Share your beautiful images anywhere!
+**[立即试用！](https://www.markdown2png.com/)** - 无需安装，直接在浏览器中使用。
 
-## 🚀 Features
+### 快速演示：
+1. 访问在线演示链接
+2. 在左侧编辑器中输入 Markdown  
+3. 从 8 种精美主题中选择
+4. 点击"复制"将 PNG 复制到剪贴板，或点击"导出 PNG"下载
+5. 在任何地方分享您的精美图片！
 
-- **Real-time Preview**: See your changes instantly as you type
-- **8 Professional Themes**: Choose from Light, Dark, Warm, Elegant, Nature, Sunset, Ocean, and Mint themes
-- **Code Syntax Highlighting**: Support for 180+ programming languages
-- **High-Quality Export**: Generate crisp, high-resolution PNG images
-- **Frontend-Only**: No backend required - everything runs in your browser
-- **Copy to Clipboard**: Instant copying for quick sharing
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Free to Use**: No limitations on the number of images you can create
+## 🚀 功能特性
 
-## 🛠️ Technology Stack
+- **实时预览**：输入时即时查看更改效果
+- **8 种专业主题**：选择浅色、深色、温暖、优雅、自然、夕阳、海洋和薄荷主题
+- **代码语法高亮**：支持 180+ 种编程语言
+- **高质量导出**：生成清晰的高分辨率 PNG 图片
+- **纯前端应用**：无需后端 - 一切都在浏览器中运行
+- **复制到剪贴板**：快速复制便于分享
+- **响应式设计**：在桌面、平板和移动设备上完美运行
+- **免费使用**：对创建图片数量无任何限制
 
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS
-- **Markdown Processing**: react-markdown, remark-gfm
-- **Code Highlighting**: Prism.js, react-syntax-highlighter
-- **Image Export**: html2canvas
-- **Deployment**: Vercel/Netlify ready
+## 🛠️ 技术栈
 
-## 📋 Quick Start
+- **前端**：Next.js 14, React 18, TypeScript
+- **样式**：Tailwind CSS
+- **Markdown 处理**：react-markdown, remark-gfm
+- **代码高亮**：Prism.js, react-syntax-highlighter
+- **图片导出**：html2canvas
+- **部署**：支持 Vercel/Netlify
 
-### Prerequisites
-- Node.js 18.0 or later
-- npm or yarn
+## 📋 快速开始
 
-### Installation
+### 环境要求
+- Node.js 18.0 或更高版本
+- npm 或 yarn
 
-1. **Clone the repository**
+### 安装步骤
+
+1. **克隆仓库**
 ```bash
 git clone https://github.com/ShanningZhuang/markdown2png.git
 cd markdown2png
 ```
 
-2. **Install dependencies**
+2. **安装依赖**
 ```bash
 npm install
 ```
 
-3. **Start development server**
+3. **启动开发服务器**
 ```bash
 npm run dev
 ```
 
-4. **Open your browser**
-Navigate to `http://localhost:3000`
+4. **打开浏览器**
+访问 `http://localhost:3000`
 
-### Build for Production
+### 生产环境构建
 
 ```bash
 npm run build
 npm start
 ```
 
-## 📁 Project Structure
+## 📁 项目结构
 
 ```
 src/
 ├── components/
-│   ├── Editor/          # Markdown editor components
-│   ├── Themes/          # Theme system components
-│   ├── Export/          # Image export functionality
-│   └── Layout/          # Layout components
+│   ├── Editor/          # Markdown 编辑器组件
+│   ├── Themes/          # 主题系统组件
+│   ├── Export/          # 图片导出功能
+│   └── Layout/          # 布局组件
 ├── styles/
-│   ├── themes/          # Theme CSS files
-│   └── globals.css      # Global styles
-├── utils/               # Utility functions
-├── types/               # TypeScript type definitions
-└── pages/               # Next.js pages
+│   ├── themes/          # 主题 CSS 文件
+│   └── globals.css      # 全局样式
+├── utils/               # 工具函数
+├── types/               # TypeScript 类型定义
+└── pages/               # Next.js 页面
 ```
 
-## 🎨 Available Themes
+## 🎨 可用主题
 
-1. **Light** - Clean and professional with excellent readability
-2. **Dark** - Easy on the eyes with striking contrast
-3. **Warm** - Soft, inviting colors perfect for engaging content
-4. **Elegant** - Modern and stylish for a premium look
-5. **Nature** - Fresh and organic with natural color tones
-6. **Sunset** - Warm and vibrant like a beautiful sunset
-7. **Ocean** - Calm and serene with blue color palette
-8. **Mint** - Cool and refreshing with mint green accents
+1. **浅色** - 干净专业，可读性佳
+2. **深色** - 护眼设计，对比度强
+3. **温暖** - 柔和舒适，完美呈现吸引人的内容
+4. **优雅** - 现代时尚，呈现高端外观
+5. **自然** - 清新有机，自然色调
+6. **夕阳** - 温暖鲜艳，如美丽日落
+7. **海洋** - 宁静舒缓，蓝色调色板
+8. **薄荷** - 清凉清新，薄荷绿点缀
 
-## 📝 Usage
+## 📝 使用方法
 
-1. **Write or paste** your Markdown content in the editor
-2. **Choose a theme** from the theme selector
-3. **Preview** your content in real-time
-4. **Export** as a high-quality PNG image
+1. **编写或粘贴** Markdown 内容到编辑器中
+2. **选择主题** 从主题选择器中选择
+3. **预览** 实时查看内容效果
+4. **导出** 为高质量 PNG 图片
 
-## 🤝 Contributing
+## 🤝 贡献指南
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork 仓库
+2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开 Pull Request
 
-## 📄 License
+## 📄 许可证
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
 
-## 🙏 Acknowledgments
+## 🙏 致谢
 
-- Inspired by [md2image.com](https://www.md2image.com)
-- Built with love for the developer community
-- Special thanks to all contributors
+- 灵感来源于 [md2image.com](https://www.md2image.com)
+- 用❤️为开发者社区构建
+- 特别感谢所有贡献者
 
-## 🔗 Links
+## 🔗 相关链接
 
-- [Live Demo](https://markdown2png.vercel.app)
-- [GitHub Repository](https://github.com/ShanningZhuang/markdown2png)
-- [Report Bug](https://github.com/ShanningZhuang/markdown2png/issues)
-- [Request Feature](https://github.com/ShanningZhuang/markdown2png/issues)
+- [在线演示](https://www.markdown2png.com/)
+- [GitHub 仓库](https://github.com/ShanningZhuang/markdown2png)
+- [报告问题](https://github.com/ShanningZhuang/markdown2png/issues)
+- [功能请求](https://github.com/ShanningZhuang/markdown2png/issues)
 
 ---
 
-Made with ❤️ by [Shanning Zhuang](https://github.com/ShanningZhuang)
+由 🤖 [Shanning Zhuang](https://shanningzhuang.github.io/) 制作

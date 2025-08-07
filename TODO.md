@@ -36,3 +36,8 @@
 - [x] **Moved demo to front of README** - Added prominent live demo section at the top of README with quick start instructions
 - [x] **Updated GitHub links** - All links now point to https://github.com/ShanningZhuang/markdown2png.git
 - [x] **Updated author information** - Changed author name to Shanning Zhuang throughout the project
+- [x] Create a Chinese Version of README.md as default and put the English version as README_EN.md
+- [x] Change the default content's last page as my introduction. Like my personal page and so on.
+- [x] Change the about to about me. My personal website (https://shanningzhuang.github.io/)
+- [x] Add a GitHub icon to show that this project is open-sourced
+- [x] Find a proper icon for the website

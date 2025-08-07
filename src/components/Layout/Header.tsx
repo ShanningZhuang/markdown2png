@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { DocumentTextIcon, PhotoIcon } from '@heroicons/react/24/outline'
+import { SiGithub } from 'react-icons/si'
 
 export function Header() {
   return (
@@ -24,17 +25,20 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-6">
             <Link 
               href="https://github.com/ShanningZhuang/markdown2png" 
+              className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SiGithub className="h-4 w-4" />
+              <span>GitHub</span>
+            </Link>
+            <Link 
+              href="https://shanningzhuang.github.io/" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              About
+              About Me
             </Link>
           </nav>
         </div>
