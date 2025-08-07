@@ -29,20 +29,6 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
           style={syntaxTheme}
           language={language}
           PreTag="div"
-          customStyle={{
-            margin: '0rem 0',
-            padding: '0rem',
-            borderRadius: '0rem',
-            backgroundColor: theme.colors.code,
-            border: `1px solid ${theme.colors.border}`,
-          }}
-          codeTagProps={{
-            style: {
-              fontFamily: '"Fira Code", "Monaco", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace',
-              fontSize: '0.875rem',
-              lineHeight: '1.5',
-            }
-          }}
           {...props}
         >
           {String(children).replace(/\n$/, '')}
@@ -143,14 +129,6 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
           ref={previewRef}
           id="preview-content"
           className={`markdown-content theme-${theme.id}`}
-          style={{
-            backgroundColor: theme.colors.background,
-            color: theme.colors.text,
-            minHeight: '100%',
-            fontFamily: theme.typography.fontFamily,
-            fontSize: theme.typography.fontSize,
-            lineHeight: theme.typography.lineHeight,
-          }}
         >
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}

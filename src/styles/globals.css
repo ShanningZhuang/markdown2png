@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
+
 /* CSS Variables for Themes */
 :root {
   /* Light Theme */
@@ -95,41 +101,65 @@ body {
 .theme-light {
   background-color: var(--theme-light-bg);
   color: var(--theme-light-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-dark {
   background-color: var(--theme-dark-bg);
   color: var(--theme-dark-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-warm {
   background-color: var(--theme-warm-bg);
   color: var(--theme-warm-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-elegant {
   background-color: var(--theme-elegant-bg);
   color: var(--theme-elegant-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-nature {
   background-color: var(--theme-nature-bg);
   color: var(--theme-nature-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-sunset {
   background-color: var(--theme-sunset-bg);
   color: var(--theme-sunset-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-ocean {
   background-color: var(--theme-ocean-bg);
   color: var(--theme-ocean-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .theme-mint {
   background-color: var(--theme-mint-bg);
   color: var(--theme-mint-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* Markdown Styles for Each Theme */
@@ -139,6 +169,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   line-height: 1.7;
+  min-height: 100%;
 }
 
 .markdown-content h1,
@@ -650,6 +681,68 @@ body {
 
 .theme-mint .markdown-content tbody tr:hover {
   background-color: #ccfbf1;
+}
+
+/* SyntaxHighlighter specific styling */
+.markdown-content div[class*="token-line"] {
+  font-family: "Fira Code", "Monaco", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Override SyntaxHighlighter default styles */
+.markdown-content pre > div {
+  margin: 0rem 0 !important;
+  padding: 0rem !important;
+  border-radius: 0rem !important;
+  overflow-x: auto !important;
+}
+
+.markdown-content pre > div > code {
+  font-family: "Fira Code", "Monaco", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Theme-specific SyntaxHighlighter overrides */
+.theme-light .markdown-content pre > div {
+  background-color: var(--theme-light-code) !important;
+  border: 1px solid var(--theme-light-border) !important;
+}
+
+.theme-dark .markdown-content pre > div {
+  background-color: var(--theme-dark-code) !important;
+  border: 1px solid var(--theme-dark-border) !important;
+}
+
+.theme-warm .markdown-content pre > div {
+  background-color: var(--theme-warm-code) !important;
+  border: 1px solid var(--theme-warm-border) !important;
+}
+
+.theme-elegant .markdown-content pre > div {
+  background-color: var(--theme-elegant-code) !important;
+  border: 1px solid var(--theme-elegant-border) !important;
+}
+
+.theme-nature .markdown-content pre > div {
+  background-color: var(--theme-nature-code) !important;
+  border: 1px solid var(--theme-nature-border) !important;
+}
+
+.theme-sunset .markdown-content pre > div {
+  background-color: var(--theme-sunset-code) !important;
+  border: 1px solid var(--theme-sunset-border) !important;
+}
+
+.theme-ocean .markdown-content pre > div {
+  background-color: var(--theme-ocean-code) !important;
+  border: 1px solid var(--theme-ocean-border) !important;
+}
+
+.theme-mint .markdown-content pre > div {
+  background-color: var(--theme-mint-code) !important;
+  border: 1px solid var(--theme-mint-border) !important;
 }
 
 /* Scrollbar Styling */

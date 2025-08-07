@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ArrowDownTrayIcon, PhotoIcon, ClipboardIcon } from '@heroicons/react/24/outline'
 import { exportToImage, downloadImage, copyImageToClipboard } from '@/utils/imageExport'
+import { addMarginPaddingVisualization, removeMarginPaddingVisualization, captureElementScreenshot } from '@/utils/debugHelpers'
 import type { Theme } from '@/types'
 
 interface ExportButtonProps {
@@ -107,6 +108,29 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
     return 'bg-blue-600 hover:bg-blue-700 text-white'
   }
 
+  // Debug helpers
+  const handleDebugVisualization = () => {
+    const previewElement = document.getElementById('preview-content')
+    if (previewElement) {
+      addMarginPaddingVisualization(previewElement)
+      console.log('🎯 Added visual debugging. Check the preview pane for colored overlays.')
+      console.log('🎯 Run removeMarginPaddingVisualization() in console to remove.')
+      // Store cleanup function on window for easy console access
+      ;(window as any).removeDebug = () => {
+        removeMarginPaddingVisualization(previewElement)
+        console.log('✅ Visual debugging removed')
+        delete (window as any).removeDebug
+      }
+    }
+  }
+
+  const handleCaptureScreenshot = () => {
+    const previewElement = document.getElementById('preview-content')
+    if (previewElement) {
+      captureElementScreenshot(previewElement, 'Preview Element')
+    }
+  }
+
   return (
     <div className="flex items-center gap-2">
       {/* Copy Only Button */}
@@ -148,6 +172,29 @@ export function ExportButton({ markdown, theme }: ExportButtonProps) {
           <span>High-quality PNG • {theme.name} theme</span>
         )}
       </div>
+      
+      {/* Debug buttons - only show in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="ml-4 pl-4 border-l border-gray-300">
+          <div className="text-xs text-gray-500 mb-1">Debug Tools</div>
+          <div className="flex gap-1">
+            <button
+              onClick={handleDebugVisualization}
+              className="px-2 py-1 text-xs bg-yellow-500 hover:bg-yellow-600 text-white rounded"
+              title="Show margin/padding visualization"
+            >
+              🎯 Debug
+            </button>
+            <button
+              onClick={handleCaptureScreenshot}
+              className="px-2 py-1 text-xs bg-purple-500 hover:bg-purple-600 text-white rounded"
+              title="Highlight element for screenshot"
+            >
+              📸 Highlight
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
