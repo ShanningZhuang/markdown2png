@@ -61,11 +61,20 @@ export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
 - Real-time preview
 - Multiple themes
 - Code highlighting
+- **Mathematical equations**
 - Export to PNG
 
 ```javascript
 console.log('Hello, Markdown2PNG!');
 ```
+
+### Math Examples
+Inline: $E = mc^2$
+
+Block equations:
+$$
+\theta_{t+1} = \theta_t - \eta \nabla_\theta J(\theta_t)
+$$
 
 > Start typing to see the live preview!"
           style={{

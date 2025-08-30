@@ -1,10 +1,13 @@
 import { useRef, useMemo } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneLight, oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import type { Components } from 'react-markdown'
 import type { Theme } from '@/types'
+import 'katex/dist/katex.min.css'
 
 interface PreviewPaneProps {
   markdown: string
@@ -134,10 +137,11 @@ export function PreviewPane({ markdown, theme }: PreviewPaneProps) {
           className={`markdown-content theme-${theme.id}`}
         >
           <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
+            remarkPlugins={[remarkGfm, remarkMath]}
+            rehypePlugins={[rehypeKatex]}
             components={customRenderers}
           >
-            {markdown || '# Welcome to Markdown2PNG\n\nStart typing in the editor to see your content here!\n\nYou can use inline code like `npm install` or `git commit` in your markdown.'}
+            {markdown || '# Welcome to Markdown2PNG\n\nStart typing in the editor to see your content here!\n\n## Features\n- Real-time preview\n- Code highlighting: `npm install`\n- **Mathematical equations** with KaTeX!\n\n### Math Example\nInline math: $E = mc^2$\n\nBlock math:\n$$\n\\theta_{t+1} = \\theta_t - \\eta \\nabla_\\theta J(\\theta_t)\n$$\n\nStart typing to see the magic! ✨'}
           </ReactMarkdown>
         </div>
       </div>

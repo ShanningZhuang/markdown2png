@@ -41,6 +41,14 @@ function greet(name) {
 greet("Developer");
 \`\`\`
 
+### Math Examples
+Inline: $E = mc^2$
+
+Block equations:
+$$
+\theta_{t+1} = \theta_t - \eta \nabla_\theta J(\theta_t)
+$$
+
 ### How to Use
 
 1. **Write your markdown** in the left editor
